@@ -1,0 +1,253 @@
+# For a description of these parameters, please visit the theme wiki.
+# https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
+baseURL = "https://poznajaws.pl/"
+disqusShortname = "poznajaws-pl"
+logo = "images/logo.png"
+DefaultContentLanguage  = "pl"
+title                   = "PoznajAWS.pl"
+theme                   = "hugo-future-imperfect-slim"
+paginate                = 5
+googleAnalytics         = ""
+pluralizeListTitles     = false
+disableLanguages        = ["en"]
+HideDate                = true
+
+[markup.goldmark.renderer]
+  unsafe                = false
+
+[outputs]
+  home                  = ["html", "json", "rss"]
+
+[params]
+  enableCDN             = true
+  cssFiles              = ["default"]
+  jsFiles               = ["default"]
+  highlightjs           = true
+  highlightjsTheme      = ""
+  highlightjsLang       = []
+  viewMorePostsLink     = "/blog/"
+  readingTime           = true
+  imageStretch          = "horizontal"
+  removeBlur            = true
+  socialShare           = ["twitter", "facebook", "linkedin", "email"]
+  hideEmptyStats        = false
+  comments              = true
+  HideDate              = true
+
+  [params.meta]
+    description         = "Poznaj AWS - dla  tych, co chcą zagłębić się w Amazon Web Services od ogółu do szczegółu. Poznaj, jak bezpiecznie korzystać z chmury"
+    author              = "Wojtek Szczepucha"
+    favicon             = true
+    svg                 = true
+    faviconVersion      = "1"
+    msColor             = "#ffffff"
+    iOSColor            = "#ffffff"
+
+  [params.header]
+    navbarTitle         = "PoznajAWS.pl"
+    dynamicTitles       = false
+    searchMenu          = true
+    shareMenu           = false
+    languageMenu        = false
+
+  [params.intro]
+    header                = "PoznajAWS.pl"
+    paragraph             = "Wojtek Szczepucha"
+    # = "Cześć! Przyszedł czas, by podzielić się zdobytą wiedzą. Dzielę się tym, co wiem, co poznałem - i staram się pomóc wam poznać AWS i widzieć go tak, jak ja go widzę - oczywiście w całej ułomności mojej, przekazując tę wiedzę tak, jak potrafię."
+    rssIntro              = true
+    socialIntro           = true
+    hideWhenSingleColumn  = false
+    alwaysOnHomepage      = true
+
+    [params.intro.pic]
+      src                 = "images/wszczepucha-lnsm165.png"
+      shape               = "circle"
+      width               = ""
+      alt                 = "Wojtek Szczepucha"
+
+  [params.sidebar]
+    about               = "Zachmurowany, starający się bezpieczenie latać w chmurach."
+    #"Cześć! Przyszedł czas, by podzielić się zdobytą wiedzą. Dzielę się tym, co wiem, co poznałem - i staram się pomóc wam poznać AWS i widzieć go tak, jak ja go widzę - oczywiście w całej ułomności mojej, przekazując tę wiedzę tak, jak potrafię."
+    postAmount          = 5
+    categories          = true
+    categoriesByCount   = true
+
+  [params.footer]
+    rssFooter           = true
+    socialFooter        = true
+
+  [params.staticman]
+    enabled             = false
+    api                 = ""  # No Trailing Slash
+    gitProvider         = ""
+    username            = ""
+    repo                = ""
+    branch              = ""
+
+    [params.staticman.recaptcha]
+      siteKey           = ""
+      encryptedKey      = ""
+
+[menu]
+
+  [[menu.main]]
+    name              = "Home"
+    identifier        = "home"
+    url               = "/"
+    pre               = "<i class='fa fa-home'></i>"
+    weight            = 1
+
+  [[menu.main]]
+    name              = "Author"
+    identifier        = "about"
+    url               = "/about/"
+    pre               = "<i class='far fa-id-card'></i>"
+    weight            = 2
+
+  [[menu.main]]
+    name              = "Blog"
+    identifier        = "blog"
+    url               = "/blog/"
+    pre               = "<i class='far fa-newspaper'></i>"
+    weight            = 3
+
+  [[menu.main]]
+    name              = "New to AWS?"
+    identifier        = "new-to-aws"
+    url               = "/new-to-aws/"
+    pre               = "<i class='fas fa-sitemap'></i>"
+    weight            = 4
+
+  [[menu.main]]
+    name              = "Reciepes"
+    identifier        = "recipe"
+    url               = "/recipe/"
+    pre               = "<i class='far fa-envelope'></i>"
+    weight            = 5
+
+  [[menu.main]]
+    name              = "Reciepes"
+    identifier        = "recipe"
+    url               = "/recipe/"
+    pre               = "<i class='far fa-envelope'></i>"
+    weight            = 6
+
+[Languages]
+
+  [Languages.en]
+    LanguageCode        = "en"
+    LanguageName        = "English"
+    weight              = 1
+
+  [Languages.pl]
+    LanguageCode        = "pl"
+    LanguageName        = "Polski"
+    title               = "PoznajAWS.pl"
+    description         = "Poznaj AWS - dla tych, co chcą zagłębić się w Amazon Web Services od ogółu do szczegółu. Poznaj, jak bezpiecznie korzystać z chmury"
+    weight              = 2
+
+    [[Languages.pl.menu.main]]
+      name              = "Home"
+      identifier        = "home"
+      url               = "/"
+      pre               = "<i class='fas fa-home'></i>"
+      weight            = 1
+      
+    [[Languages.pl.menu.main]]
+      name              = "AWS Cloud Practitioner"
+      identifier        = "aws-certified-cloud-practitioner"
+      url               = "/aws-certified-cloud-practitioner"
+      pre               = "<i class='far fa-newspaper'></i>"
+      weight            = 2
+      
+    [[Languages.pl.menu.main]]
+      name              = "Podstawy"
+      identifier        = "dobry start"
+      url               = "/dobry-start"
+      pre               = "<i class='far fa-newspaper'></i>"
+      weight            = 3
+    
+    [[Languages.pl.menu.main]]
+      name              = "Bezpieczeństwo"
+      identifier        = "bezpieczenstwo"
+      url               = "/bezpieczenstwo/"
+      pre               = "<i class='fas fa-newspaper'></i>"
+      weight            = 4
+
+    [[Languages.pl.menu.main]]
+      name              = "Receptury"
+      identifier        = "receptury"
+      url               = "/receptury/"
+      pre               = "<i class='fas fa-newspaper'></i>"
+      weight            = 5
+
+    [[Languages.pl.menu.main]]
+      name              = "O mnie"
+      identifier        = "about"
+      url               = "/about/"
+      pre               = "<i class='far fa-id-card'></i>"
+      weight            = 6
+
+[social]
+  # Coding Communities
+  github                = "donkoyote"
+  gitlab                = ""
+  stackoverflow         = "" # User Number
+  bitbucket             = ""
+  jsfiddle              = ""
+  codepen               = ""
+  # Visual Art Communities
+  deviantart            = ""
+  flickr                = ""
+  behance               = ""
+  dribbble              = ""
+  # Publishing Communities
+  wordpress             = ""
+  medium                = ""
+  # Professional/Business Oriented Communities
+  linkedin              = "wojciechszczepucha"
+  linkedin_company      = ""
+  foursquare            = ""
+  xing                  = ""
+  slideshare            = ""
+  # Social Networks
+  facebook              = ""
+  googleplus            = ""
+  reddit                = ""
+  quora                 = ""
+  youtube               = ""
+  vimeo                 = ""
+  whatsapp              = "" # WhatsApp Number
+    # WeChat and QQ need testing.
+    wechat              = ""
+    qq                  = "" # User ID Number
+  instagram             = ""
+  tumblr                = ""
+  twitter               = "donkoyote"
+  strava                = ""
+  skype                 = ""
+  snapchat              = ""
+  pinterest             = ""
+  telegram              = ""
+  vine                  = ""
+  googlescholar         = ""
+  orcid                 = ""
+  researchgate          = ""
+  keybase               = ""
+  mastodon              = ""
+  # Email
+  email                 = "wojtek@poznajaws.pl"
+
+[imaging]
+resampleFilter = "box"
+quality = 75
+hint = "photo"
+anchor = "smart"
+bgColor = "#ffffff"
+
+[imaging.exif]
+includeFields = ""
+excludeFields = ""
+disableDate = true
+disableLatLong = true
+

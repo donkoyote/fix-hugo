@@ -1,0 +1,110 @@
+
+
+<section id="site-sidebar">
+    <section id="subscribe">
+      <script async data-uid="9cc0d8da47" src="https://zachmurowani.ck.page/9cc0d8da47/index.js"></script>
+    </section>
+
+    {{ if gt .Site.Params.sidebar.postAmount 0 }}
+    <section id="recent-posts">
+      <header>
+        <h1>{{ i18n "recent_posts" }}</h1>
+      </header>
+      {{ range first (.Site.Params.sidebar.postAmount | default 5) (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+      <article class="mini-post">
+          {{ .Render "featured" }}
+        <header>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <time class="published" datetime="{{ .Date }}">{{ .Render "date" }}</time>
+        </header>
+      </article>
+      {{ end }}
+      {{ if ge (len (where site.RegularPages "Type" "in" site.Params.mainSections)) (.Site.Params.sidebar.postAmount | default 5) }}
+        <footer>
+          <a href="{{ ( .Site.Params.viewMorePostsLink | default "blog") | relLangURL }}" class="button">{{ i18n "see_more" }}</a>
+        </footer>
+      {{ end }}
+    </section>
+  {{ end }}
+
+  {{ if .Site.Params.sidebar.categories }}
+    {{ if ne ($.Scratch.Get "showCategories") false }}
+
+    <section id="categories">
+      <header>
+        <h1><a href="{{ "categories" | relLangURL }}">{{ i18n "categories" (len .Site.Taxonomies.categories) }}</a></h1>
+      </header>
+      <ul>
+        {{ $.Scratch.Set "categories" (cond .Site.Params.sidebar.categoriesByCount .Site.Taxonomies.categories.ByCount .Site.Taxonomies.categories.Alphabetical) }}
+        {{ range $key, $value := $.Scratch.Get "categories" }}
+        <li>
+            <a href="{{ printf "%s/%s" "categories" $value.Name | urlize | relLangURL }}/">{{ $value.Name }}<span class="count">{{ $value.Count }}</span></a>
+        {{ end }}
+        </li>
+      </ul>
+    </section>
+
+    {{ end }}
+  {{ end }}
+
+<section id="tags">
+  <header>
+    <h1><a href="{{ "tags" | relLangURL }}">{{ i18n "tags" (len .Site.Taxonomies.tags) }}</a></h1>
+  </header>
+  <ul>
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    <a href="/tags/{{ $name | urlize }}">{{ $name }}</a>
+    {{ end }}
+  </ul>
+</section>
+
+  {{ if .Site.Params.sidebar.about }}
+    <section id="mini-bio">
+      <header>
+        <h1>{{ i18n "about" }}</h1>
+      </header>
+      <p>{{ .Site.Params.sidebar.about | safeHTML }}</p>
+      <footer>
+        <a href="{{ "about" | relLangURL }}" class="button">{{ i18n "learn_more" }}</a>
+      </footer>
+    </section>
+  {{ end }}
+</section>
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '443832859928596');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=443832859928596&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+  
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.poznajaws.pl"]);
+    _paq.push(["setDomains", ["*.poznajaws.pl"]]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//stat.uol.pl/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '11']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//stat.uol.pl/matomo.php?idsite=11&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
