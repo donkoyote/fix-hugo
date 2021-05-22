@@ -2,7 +2,7 @@
 # https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
 baseURL = "https://poznajaws.pl/"
 disqusShortname = "poznajaws-pl"
-logo = "images/logo.png"
+logo = "/images/logo.png"
 DefaultContentLanguage  = "pl"
 title                   = "PoznajAWS.pl"
 theme                   = "hugo-future-imperfect-slim"

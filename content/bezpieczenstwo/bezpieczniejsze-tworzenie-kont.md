@@ -4,7 +4,7 @@ date = 2020-12-22T23:00:00Z
 description = "Jak nie stracić dostępu do konta"
 
 [[images]] 
-src = "/images/meritt-thomas-0nDC2QgBojY-unsplash.jpg"
+src = "images/meritt-thomas-0nDC2QgBojY-unsplash.jpg"
 stretch = "both"
 
 tags = ["Bezpieczenstwo"]
